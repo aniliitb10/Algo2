@@ -4,6 +4,12 @@ import java.util.Objects;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/* My PQ implementation.
+*  By default, it is Min PQ but a comparator can be used
+*  change it to Max PQ.
+*  There are some API to query to elements, these use Key.equals()
+*  to check equality */
+
 public class PQ<Key extends Comparable<? super Key>> implements Iterable<Key>
 {
   private final static int TOP_INDEX = 1;
