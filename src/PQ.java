@@ -49,33 +49,6 @@ public class PQ<Key extends Comparable<? super Key>> implements Iterable<Key>
     return delIndex(TOP_INDEX);
   }
 
-  /* Uses .equals for comparision of equality
-  *  Does linear search to find the element
-  *  returns -1 if not found, else returns the index of Key
-  *  inside underlying array */
-  public int contains(Key key)
-  {
-    if (isEmpty()) return -1;
-
-    for (int index = TOP_INDEX; index < keys.size(); ++index)
-    {
-      if (keys.get(index).equals(key)) return index;
-    }
-
-    return -1;
-  }
-
-  /* Uses .equals for comparision of equality
-   *  Does linear search to find (and then delete) the element */
-  public boolean del(final Key key)
-  {
-    if (isEmpty()) return false;
-    int index = contains(Objects.requireNonNull(key));
-    if (index == -1) return false;
-
-    return key == delIndex(index);
-  }
-
   private Key delIndex(final int index)
   {
     if (isEmpty() || index >= keys.size() || index < TOP_INDEX)
@@ -172,11 +145,6 @@ public class PQ<Key extends Comparable<? super Key>> implements Iterable<Key>
     pq.insert(17);
     pq.insert(-42);
     pq.insert(42);
-
-    System.out.println(pq.del(40));
-    System.out.println(pq.del(17));
-    System.out.println(pq.del(100));
-    System.out.println(pq.del(656660));
 
     System.out.println("Printing numbers in descending order");
 
