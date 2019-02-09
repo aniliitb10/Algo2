@@ -99,6 +99,5 @@ public class MyEagerPrimMST
 
     mst = new MyEagerPrimMST(ewg);
     System.out.println("Weight: " + mst.getWeight());
-
   }
 }
