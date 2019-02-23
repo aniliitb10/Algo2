@@ -14,19 +14,19 @@ public class MyTST<ValueType>
     }
   }
 
-  void insert(String key, ValueType value)
+  void insert(final String key, final ValueType value)
   {
     if (key.isEmpty()) throw new IllegalArgumentException("Key is empty!");
     root = insert(root, key, value, 0);
   }
 
-  ValueType get(String key)
+  ValueType get(final String key)
   {
     Node node = get(root, key, 0);
     return (node == null) ? null : node.value;
   }
 
-  private Node insert(Node node, final String key, final ValueType value, int depth)
+  private Node insert(Node node, final String key, final ValueType value, final int depth)
   {
     if (node == null) node = new Node(key.charAt(depth)); // Important: Not to assign a value here as not every node has a value
 
@@ -40,7 +40,7 @@ public class MyTST<ValueType>
     return node;
   }
 
-  private Node get(Node node, final String key, int depth)
+  private Node get(final Node node, final String key, final int depth)
   {
     if (node == null) return null;
     if (key.isEmpty()) return null;
@@ -53,7 +53,6 @@ public class MyTST<ValueType>
     else                                 return node;
   }
 
-
   public static void main(String[] args)
   {
     MyTST<Integer> myTST = new MyTST<>();
@@ -64,6 +63,4 @@ public class MyTST<ValueType>
 
     System.out.println(myTST.get("kumarAnil"));
   }
-
-
 }
