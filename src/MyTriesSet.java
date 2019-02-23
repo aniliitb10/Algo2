@@ -1,4 +1,5 @@
-import java.util.PriorityQueue;
+import java.util.LinkedList;
+import java.util.LinkedList;
 
 class MyTriesSet
 {
@@ -38,14 +39,14 @@ class MyTriesSet
 
   Iterable<String> keysWithPrefix(final String prefix)
   {
-    PriorityQueue<String> queue = new PriorityQueue<>();
+    LinkedList<String> queue = new LinkedList<>();
     keysWithPrefix(contains(root, prefix, 0), new StringBuilder(prefix), queue);
     return queue;
   }
 
   Iterable<String> keysThatMatch(final String key)
   {
-    PriorityQueue<String> queue = new PriorityQueue<>();
+    LinkedList<String> queue = new LinkedList<>();
     keysThatMatch(root, new StringBuilder(), queue, key, 0);
     return queue;
   }
@@ -77,7 +78,7 @@ class MyTriesSet
     return node;
   }
 
-  private void keysWithPrefix(final Node node, final StringBuilder key, final PriorityQueue<String> queue)
+  private void keysWithPrefix(final Node node, final StringBuilder key, final LinkedList<String> queue)
   {
     if (node == null) return;
     if (node.isKey) queue.add(key.toString());
@@ -89,7 +90,7 @@ class MyTriesSet
     }
   }
 
-  private void keysThatMatch(final Node node, final StringBuilder key, final PriorityQueue<String> queue,
+  private void keysThatMatch(final Node node, final StringBuilder key, final LinkedList<String> queue,
                              final String oKey, final int depth)
   {
     if (node == null) return;
