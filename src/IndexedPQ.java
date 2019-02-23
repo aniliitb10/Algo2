@@ -157,12 +157,10 @@ public class IndexedPQ<Item extends Comparable<Item>>
     }
   }
 
-
   public boolean isEmpty()
   {
     return count == 0;
   }
-
 
   public static void main(String[] args)
   {
