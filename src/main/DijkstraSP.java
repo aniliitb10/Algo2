@@ -1,3 +1,5 @@
+package main;
+
 import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import edu.princeton.cs.algs4.In;
@@ -67,7 +69,7 @@ public class DijkstraSP
 
   public static void main(String[] args)
   {
-    In in = new In("tinyEWD.txt");
+    In in = new In("resources/tinyEWD.txt");
     EdgeWeightedDigraph ewg = new EdgeWeightedDigraph(in);
     int source = 0;
 

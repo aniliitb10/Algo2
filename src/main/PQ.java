@@ -1,12 +1,14 @@
+package main;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/* My PQ implementation.
-*  By default, it is Min PQ but a comparator can be used
-*  change it to Max PQ.
+/* My main.PQ implementation.
+*  By default, it is Min main.PQ but a comparator can be used
+*  change it to Max main.PQ.
 *  There are some API to query to elements, these use Key.equals()
 *  to check equality */
 

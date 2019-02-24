@@ -1,3 +1,5 @@
+package main;
+
 public class MyTST<ValueType>
 {
   private Node root;

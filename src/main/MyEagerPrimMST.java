@@ -1,3 +1,5 @@
+package main;
+
 import edu.princeton.cs.algs4.Edge;
 import edu.princeton.cs.algs4.EdgeWeightedGraph;
 import edu.princeton.cs.algs4.In;
@@ -88,13 +90,13 @@ public class MyEagerPrimMST
 
   public static void main(String[] args)
   {
-    In in = new In("tinyEWG.txt");
+    In in = new In("resources/tinyEWG.txt");
     EdgeWeightedGraph ewg = new EdgeWeightedGraph(in);
 
     MyEagerPrimMST mst = new MyEagerPrimMST(ewg);
     System.out.println("Weight: " + mst.getWeight());
 
-    in = new In("mediumEWG.txt");
+    in = new In("resources/mediumEWG.txt");
     ewg = new EdgeWeightedGraph(in);
 
     mst = new MyEagerPrimMST(ewg);

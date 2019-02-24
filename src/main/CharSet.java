@@ -1,3 +1,5 @@
+package main;
+
 public class CharSet
 {
   public char getChar(int index)

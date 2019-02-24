@@ -1,3 +1,5 @@
+package main;
+
 public class ContinuousCharSet extends CharSet
 {
   private final char firstChar;

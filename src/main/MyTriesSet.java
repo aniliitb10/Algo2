@@ -1,6 +1,8 @@
+package main;
+
 import java.util.LinkedList;
 
-class MyTriesSet
+public class MyTriesSet
 {
   private final CharSet charSet;
   private Node root;
@@ -12,47 +14,47 @@ class MyTriesSet
 
     Node(){}
 
-    Node(final Node node)
+    private Node(final Node node)
     {
       this.isKey = node.isKey;
       System.arraycopy(node.next, 0, this.next, 0, this.next.length);
     }
   }
 
-  MyTriesSet(final CharSet charSet)
+  public MyTriesSet(final CharSet charSet)
   {
     this.charSet = charSet;
     this.root = new Node();
   }
 
-  boolean contains(final String key)
+  public boolean contains(final String key)
   {
-    Node node = contains(root, key, 0);
+    Node node = contains(root, requireNonEmpty(key), 0);
     return (node != null && node.isKey);
   }
 
-  void add(final String s)
+  public void add(final String key)
   {
-    root = add(this.root, s, 0);
+    root = add(this.root, requireNonEmpty(key), 0);
   }
 
-  Iterable<String> keysWithPrefix(final String prefix)
+  public Iterable<String> keysWithPrefix(final String prefix)
   {
     LinkedList<String> queue = new LinkedList<>();
     keysWithPrefix(contains(root, prefix, 0), new StringBuilder(prefix), queue);
     return queue;
   }
 
-  Iterable<String> keysThatMatch(final String key)
+  public Iterable<String> keysThatMatch(final String key)
   {
     LinkedList<String> queue = new LinkedList<>();
     keysThatMatch(root, new StringBuilder(), queue, key, 0);
     return queue;
   }
 
-  Node getNode(String key)
+  public Node getNode(String key)
   {
-    Node node = contains(root, key, 0);
+    Node node = contains(root, requireNonEmpty(key), 0);
     return (node == null) ? null : new Node(node);
   }
 
@@ -112,31 +114,10 @@ class MyTriesSet
     }
   }
 
-  public static void main(String[] args)
+  String requireNonEmpty(String s)
   {
-    MyTriesSet triesSet = new MyTriesSet(new LowerCaseCharSet());
-    triesSet.add("ail");
-    triesSet.add("kumar");
-    triesSet.add("kumara");
-    triesSet.add("kumarb");
-    triesSet.add("kumarc");
-    triesSet.add("kumard");
-    triesSet.add("anild");
-    triesSet.add("anils");
-
-    for(String key : triesSet.keysThatMatch(".u...."))
-      System.out.println(key);
-
-    triesSet = new MyTriesSet(new UpperCaseCharSet());
-    triesSet.add("ANIL");
-    triesSet.add("ANILK");
-    triesSet.add("ANILU");
-    triesSet.add("ANILS");
-
-    System.out.println("contains: " + triesSet.contains("ANIL"));
-    for(String key : triesSet.keysThatMatch(".N..."))
-    {
-      System.out.println(key);
-    }
+    if (s.isEmpty()) throw new IllegalArgumentException("Empty string");
+    return s;
   }
+
 }

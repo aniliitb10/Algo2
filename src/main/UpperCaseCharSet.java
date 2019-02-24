@@ -1,3 +1,5 @@
+package main;
+
 public class UpperCaseCharSet extends ContinuousCharSet
 {
   public UpperCaseCharSet()

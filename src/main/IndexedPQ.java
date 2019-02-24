@@ -1,3 +1,5 @@
+package main;
+
 import edu.princeton.cs.algs4.Edge;
 
 import java.util.Comparator;
